@@ -1,17 +1,33 @@
+import { Link } from 'react-router-dom'
 import './LandingPage.css'
 
 export default function LandingPage() {
   return (
     <div className="landing">
-      <h1 className="landing__title">Travel Dream</h1>
-      <p className="landing__description">
-        Travel Dream is a front-end React application for DIG 4503. Browse
-        destinations from around the world, save the places you want to visit,
-        add personal notes and star ratings, and organize everything by region
-        or custom trip. All data is stored in your browser using localStorage
-        — no backend required. Sign up and log in with regex-validated
-        credentials to keep your wishlist across sessions.
-      </p>
+      <div className="landing__inner">
+        <span className="landing__eyebrow">DIG 4503 &mdash; Midterm Project</span>
+
+        <h1 className="landing__title">
+          Your <span>Travel</span> Wishlist,<br />All in One Place
+        </h1>
+
+        <p className="landing__description">
+          Browse destinations from around the world, save the places you dream of
+          visiting, add personal notes and star ratings, and organize everything
+          into custom trips — all stored right in your browser.
+        </p>
+
+        <div className="landing__actions">
+          <Link className="landing__btn landing__btn--primary" to="/signup">
+            Get Started
+          </Link>
+          <Link className="landing__btn landing__btn--secondary" to="/login">
+            Log In
+          </Link>
+        </div>
+
+        <div className="landing__divider" />
+      </div>
     </div>
   )
 }

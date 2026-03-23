@@ -1,0 +1,117 @@
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  padding: 0 32px;
+  height: 62px;
+  background-color: var(--blue-deeper);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.25);
+}
+
+/* Brand */
+.navbar__brand {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--white);
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.navbar__brand:hover {
+  text-decoration: none;
+  color: var(--brown-light);
+}
+
+/* Nav links */
+.navbar__nav {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex: 1;
+}
+
+.navbar__link {
+  padding: 6px 14px;
+  border-radius: var(--radius-sm);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  transition: background-color 0.15s, color 0.15s;
+}
+
+.navbar__link:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+  color: var(--white);
+  text-decoration: none;
+}
+
+.navbar__link--active {
+  background-color: rgba(255, 255, 255, 0.12);
+  color: var(--white);
+}
+
+/* Right side */
+.navbar__right {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.navbar__username {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 500;
+}
+
+.navbar__logout {
+  padding: 6px 16px;
+  background-color: transparent;
+  border: 1.5px solid rgba(255, 255, 255, 0.3);
+  border-radius: var(--radius-sm);
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.825rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: border-color 0.15s, color 0.15s, background-color 0.15s;
+}
+
+.navbar__logout:hover {
+  border-color: var(--white);
+  color: var(--white);
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+/* Guest links */
+.navbar__auth-link {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.75);
+  text-decoration: none;
+}
+
+.navbar__auth-link:hover {
+  color: var(--white);
+  text-decoration: none;
+}
+
+.navbar__auth-btn {
+  padding: 7px 18px;
+  background-color: var(--brown);
+  color: var(--white);
+  border-radius: var(--radius-sm);
+  font-size: 0.875rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background-color 0.15s;
+}
+
+.navbar__auth-btn:hover {
+  background-color: var(--brown-dark);
+  text-decoration: none;
+}

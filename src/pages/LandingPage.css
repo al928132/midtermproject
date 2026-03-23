@@ -1,52 +1,118 @@
-/* body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #f5f5f5;
-  color: #333;
-}
-
+/* ── Hero wrapper ─────────────────────────────── */
 .landing {
-  max-width: 800px;
-  margin: 60px auto;
-  padding: 0 20px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 60px 24px;
+
+  background:
+    linear-gradient(
+      160deg,
+      var(--blue-deeper) 0%,
+      var(--blue-dark)   45%,
+      var(--blue)        100%
+    );
 }
 
+/* ── Content card ─────────────────────────────── */
+.landing__inner {
+  max-width: 680px;
+  width: 100%;
+}
+
+/* ── Eyebrow label ────────────────────────────── */
+.landing__eyebrow {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--brown-light);
+  background-color: rgba(169, 119, 80, 0.15);
+  border: 1px solid rgba(169, 119, 80, 0.35);
+  border-radius: 999px;
+  padding: 4px 14px;
+  margin-bottom: 24px;
+}
+
+/* ── Heading ──────────────────────────────────── */
 .landing__title {
-  font-size: 2rem;
-  margin-bottom: 16px;
+  font-size: clamp(2.4rem, 6vw, 3.8rem);
+  font-weight: 800;
+  color: var(--white);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin-bottom: 20px;
 }
 
+.landing__title span {
+  color: var(--brown-light);
+}
+
+/* ── Description ──────────────────────────────── */
 .landing__description {
-  font-size: 1rem;
-  line-height: 1.7;
-  color: #555;
-} */
-
-body {
-  font-family: Arial, sans-serif;
-  background-color: #f5f5f5;
-  color: #333;
-  margin: 0;
-  padding: 0;
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: rgba(255, 255, 255, 0.75);
+  max-width: 540px;
+  margin: 0 auto 36px;
 }
 
-.landing {
-  max-width: 700px;
-  margin: 80px auto;
-  padding: 40px;
-  background-color: #fff;
-  border: 1px solid #ddd;
-  border-radius: 8px;
+/* ── CTA buttons ──────────────────────────────── */
+.landing__actions {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
-.landing__title {
-  font-size: 2rem;
-  margin-bottom: 16px;
+.landing__btn {
+  display: inline-block;
+  padding: 13px 32px;
+  border-radius: var(--radius-sm);
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  transition: transform 0.15s, box-shadow 0.15s, background-color 0.15s;
 }
 
-.landing__description {
-  font-size: 1rem;
-  line-height: 1.7;
-  color: #555;
+.landing__btn:hover {
+  text-decoration: none;
+  transform: translateY(-2px);
+}
+
+.landing__btn--primary {
+  background-color: var(--brown);
+  color: var(--white);
+  box-shadow: 0 4px 16px rgba(91, 58, 30, 0.45);
+}
+
+.landing__btn--primary:hover {
+  background-color: var(--brown-dark);
+  box-shadow: 0 6px 22px rgba(91, 58, 30, 0.55);
+}
+
+.landing__btn--secondary {
+  background-color: transparent;
+  color: var(--white);
+  border: 2px solid rgba(255, 255, 255, 0.5);
+}
+
+.landing__btn--secondary:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: var(--white);
+}
+
+/* ── Divider line ─────────────────────────────── */
+.landing__divider {
+  width: 56px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--brown-light), var(--brown));
+  border-radius: 2px;
+  margin: 40px auto 0;
+  opacity: 0.6;
 }

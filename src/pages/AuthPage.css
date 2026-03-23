@@ -1,0 +1,160 @@
+/* ── Page wrapper ─────────────────────────────── */
+.auth-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+
+  background:
+    linear-gradient(
+      160deg,
+      var(--blue-deeper) 0%,
+      var(--blue-dark)   45%,
+      var(--blue)        100%
+    );
+}
+
+/* ── Card ─────────────────────────────────────── */
+.auth-card {
+  background-color: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-lg);
+  padding: 44px 40px 36px;
+  width: 100%;
+  max-width: 440px;
+
+  /* subtle top accent */
+  border-top: 4px solid var(--blue);
+}
+
+/* ── Card header ──────────────────────────────── */
+.auth-card__brand {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin-bottom: 8px;
+}
+
+.auth-card__title {
+  font-size: 1.65rem;
+  font-weight: 800;
+  color: var(--black);
+  margin-bottom: 28px;
+  letter-spacing: -0.01em;
+}
+
+/* ── Server-level error ───────────────────────── */
+.auth-card__server-error {
+  background-color: var(--error-bg);
+  border: 1px solid var(--error-border);
+  color: var(--error);
+  border-radius: var(--radius-sm);
+  padding: 10px 14px;
+  margin-bottom: 20px;
+  font-size: 0.875rem;
+}
+
+/* ── Submit button ────────────────────────────── */
+.auth-card__submit {
+  margin-top: 8px;
+  width: 100%;
+  padding: 13px;
+  background-color: var(--blue);
+  color: var(--white);
+  border: none;
+  border-radius: var(--radius-sm);
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  transition: background-color 0.15s, box-shadow 0.15s, transform 0.1s;
+  box-shadow: 0 3px 12px rgba(36, 87, 197, 0.35);
+}
+
+.auth-card__submit:hover:not(:disabled) {
+  background-color: var(--blue-dark);
+  box-shadow: 0 5px 18px rgba(36, 87, 197, 0.45);
+  transform: translateY(-1px);
+}
+
+.auth-card__submit:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* ── Switch link ──────────────────────────────── */
+.auth-card__switch {
+  margin-top: 22px;
+  font-size: 0.875rem;
+  color: var(--gray);
+  text-align: center;
+}
+
+.auth-card__switch a {
+  color: var(--brown);
+  font-weight: 700;
+}
+
+.auth-card__switch a:hover {
+  color: var(--brown-dark);
+  text-decoration: underline;
+}
+
+/* ── Divider ──────────────────────────────────── */
+.auth-card__divider {
+  border: none;
+  border-top: 1px solid var(--gray-light);
+  margin: 24px 0;
+}
+
+/* ── FormField ────────────────────────────────── */
+.form-field {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 18px;
+}
+
+.form-field__label {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--gray-dark);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-bottom: 7px;
+}
+
+.form-field__input {
+  padding: 11px 14px;
+  border: 1.5px solid var(--gray-border);
+  border-radius: var(--radius-sm);
+  font-size: 0.975rem;
+  font-family: inherit;
+  color: var(--black);
+  background-color: var(--white);
+  outline: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.form-field__input:focus {
+  border-color: var(--blue);
+  box-shadow: 0 0 0 3px rgba(36, 87, 197, 0.12);
+}
+
+.form-field__input--error {
+  border-color: var(--error);
+}
+
+.form-field__input--error:focus {
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.12);
+}
+
+.form-field__error {
+  margin-top: 5px;
+  font-size: 0.78rem;
+  color: var(--error);
+  font-weight: 500;
+}
