@@ -185,3 +185,15 @@ src/
 ├── index.css
 └── main.jsx
 ```
+
+## Technologies used
+
+I used claude code to create the website.
+
+## Known bugs or Limitations
+
+There are no known bugs, everything was tested thoroughly. As far as limitations, in the browsing of the trips, you can not click to see more information about the trip. There is also no settings page to be able to update profile name, email, or password.
+
+## What I Learned
+
+With this project, breaking down the website into different steps and creating different iterations, is reinforced. I learned that with more specifics the AI is able to complete tasks easier. This allowed for me to become more detailed oriented during each step. Although the AI is reviewing its own code, I also go through and manually test the features to make sure that they function properly. I did have some trouble with the images of the different cities not loading or not matching what it is. For example, the image for Dubrovnik, Croatia was not an image of the city, but a stock image of a shcoked woman.

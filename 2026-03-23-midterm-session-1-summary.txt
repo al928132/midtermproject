@@ -1,0 +1,161 @@
+SESSION 1 SUMMARY — DIG 4503 Midterm (Travel Dream React App)
+==============================================================
+
+PRIMARY WORK
+------------
+Built "Travel Dream" — a React front-end app. Steps 1–5 were implemented
+sequentially across session 1. Step 5 was still in progress when context ran out.
+
+TECH STACK
+----------
+- React 19 + Vite, base path `/midtermproject/` in vite.config.js
+- react-router-dom (BrowserRouter, Routes, Route, Navigate, NavLink)
+- localStorage for all persistence (auth, wishlist, trips)
+- SHA-256 password hashing via crypto.subtle
+- Regex form validation (email, password rules)
+- React Context (AuthContext) for global auth state
+- Custom hooks: useWishlist, useTrips
+- CSS custom properties design system (no external UI library)
+- Native HTML5 Drag-and-Drop API for trip destination reordering
+- Unsplash CDN + Pexels CDN image URLs
+- useMemo for filtered destination search
+- Modal pattern with Escape key listener and backdrop click-to-close
+- BEM-style CSS class naming convention
+
+CSS DESIGN SYSTEM (src/index.css)
+----------------------------------
+:root {
+  --blue: #2457C5; --blue-dark: #1a3f99; --blue-deeper: #122d70; --blue-light: #eef2fc;
+  --brown: #7B4F2E; --brown-dark: #5C3A1E; --brown-light: #A97750; --brown-muted: #f0e6da;
+  --white: #FFFFFF; --off-white: #F8F7F5; --black: #0D0D0D;
+  --gray: #6B7280; --gray-light: #E5E7EB; --gray-border: #D1D5DB;
+  --error: #dc2626; --radius: 10px; --radius-sm: 6px;
+  --shadow-sm: 0 1px 4px rgba(0,0,0,0.08); --shadow: 0 4px 20px rgba(0,0,0,0.12);
+  --shadow-lg: 0 8px 40px rgba(0,0,0,0.18);
+}
+
+FILES CREATED / MODIFIED
+-------------------------
+
+src/App.jsx
+  - ProtectedRoute component
+  - Routes: /, /signup, /login, /dashboard→/browse, /browse, /wishlist, /trips, *→/
+
+src/context/AuthContext.jsx
+  - Auth state, SHA-256 hashing, signUp/login/logout
+
+src/components/FormField.jsx
+  - Reusable form field with label, input, error display
+
+src/pages/SignUpPage.jsx
+  - Regex validation: email /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+  - Password /^(?=.*[A-Z])(?=.*\d).{8,}$/
+  - Touched state for on-blur errors
+
+src/pages/LoginPage.jsx
+  - Email + password login against hashed localStorage records
+
+src/pages/AuthPage.css
+  - Shared auth page + FormField styles
+
+src/pages/LandingPage.jsx + LandingPage.css
+  - Hero page with eyebrow label, title with brown span, CTA buttons
+  - Full-viewport blue gradient hero
+
+src/data/destinations.js
+  - 52 destinations: Africa×10, Americas×12, Asia×12, Europe×12, Oceania×7
+  - Mix of Unsplash (timestamp IDs) and Pexels (numeric IDs) image URLs
+  - Pexels replacements: Melbourne(18260084), Kathmandu(14838878), Seoul(18495179),
+    Vancouver(11331742), Havana(8804890), Luxor(6102264), Fez(8571079),
+    Marrakech(30434892), Victoria Falls(27878405), Cartagena(15847154),
+    Cusco(32162792), Dubrovnik(12049136)
+
+src/components/Navbar.jsx + Navbar.css
+  - Sticky dark-blue navbar, active NavLinks
+  - Username + logout for auth users, Sign Up/Log In for guests
+  - Links: Browse, Wishlist, Trips
+
+src/components/SearchBar.jsx
+  - Controlled search input with clear button
+
+src/components/RegionFilter.jsx
+  - Pill buttons: All, Africa, Americas, Asia, Europe, Oceania
+
+src/components/DestinationCard.jsx
+  - Props: destination, saved, onToggleSave, onCardClick
+  - Shows note snippet (80-char truncated), star rating summary, "Click to edit" hint
+  - Heart button stops propagation
+
+src/pages/BrowsePage.jsx + BrowsePage.css
+  - useMemo filtering by query + region
+  - Uses useWishlist hook
+  - "More Trips Coming Soon!" card shown when region=All or Oceania with no search
+
+src/hooks/useWishlist.js
+  - localStorage key: 'wishlist'
+  - Exports: addToWishlist, removeFromWishlist, isWishlisted, toggleWishlist,
+    updateWishlistItem(id, updates)
+
+src/pages/WishlistPage.jsx + WishlistPage.css
+  - selectedId state, renders DestinationDetailModal on card click
+  - Calls updateWishlistItem on save
+
+src/components/StarRating.jsx + StarRating.css
+  - Props: value, onChange, readOnly
+  - Hover state, click toggles off if clicking current value
+  - Brown filled stars (--brown-light)
+
+src/components/DestinationDetailModal.jsx + DestinationDetailModal.css
+  - Blurred backdrop modal
+  - Props: entry, onSave, onClose
+  - Escape key listener
+  - 500-char textarea with live counter
+  - StarRating with text hint (Poor/Fair/Good/Great/Excellent)
+  - Blue top border stripe
+
+src/hooks/useTrips.js
+  - localStorage key: 'trips'
+  - Stores array of { id, name, description, destinationIds: [] }
+  - Exports: createTrip, deleteTrip, addDestinationToTrip,
+    removeDestinationFromTrip, reorderDestinations
+
+src/components/TripModal.jsx + TripModal.css
+  - New trip form: name (required, max 40 chars, live counter) + optional description
+  - Validation, Escape key + backdrop close
+  - Blue top border stripe
+
+ERRORS & FIXES
+--------------
+- Unsplash short ID format not working: switched 8 broken destinations to Pexels
+- Wrong images for Cartagena, Victoria Falls, Cusco, Dubrovnik: found correct Pexels IDs
+- Kathmandu still not loading after first fix: switched to ID 14838878
+- LandingPage.css duplicate selector: rewrote entire file
+- index.css was entirely commented out: rewrote file
+
+STEP 5 STATUS AT END OF SESSION 1
+-----------------------------------
+Completed: useTrips.js, TripModal.jsx/css
+Still needed: TripCard.jsx/css, TripsPage.jsx/css, App.jsx /trips route update
+(All of these were completed at the start of Session 2)
+
+USER MESSAGES (session 1)
+--------------------------
+1. "go into readme.md and go over it, also go through the last conversation we had in this folder."
+2. "begin step 1"
+3. "for the css, have the page look like a modern website with a sleek look. Use a royal blue as
+   the primary color with shades of brown as the secondary color, as well as white and black for
+   other parts of the site."
+4. "it looks good, begin the next step"
+5. "are the pages linked to one another? If i login/sign up will i be redirected to the following page?"
+6. "begin step 3"
+7. "for the images in each destination link, make them high-quality, copy right free, images from
+   the actual destination and not random images."
+8. "the images for melbourne, kathmandu, seoul, vancouver, havana, luxor, fez, and marrakech are
+   not loading. Can that be fixed?"
+9. "the images are still not loading, if upsplash is not working use a different source. Also, add
+   another box next to melbourne saying 'More trips coming soon!'"
+10. "the images for cartagena, victoria falls, cusco, and dubrovnik are not images of the cities.
+    Kathmandu still does not have an image."
+11. "that looks perfect begin the next step"
+12. "looks great, start the next step"
+13. "when does my limit reset? continue working on the previous step"
